@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SK Clock</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <div class="app-shell">
+      <header class="topbar">
+        <button class="brand" type="button" data-action="home" aria-label="Voltar para o inicio">
+          <span class="brand-mark">SK</span>
+          <span>Clock</span>
+        </button>
+
+        <nav class="mode-nav" aria-label="Modos do relogio">
+          <button class="nav-button is-active" type="button" data-mode="analog">Analógico</button>
+          <button class="nav-button" type="button" data-mode="digital">Digital</button>
+        </nav>
+
+        <button class="theme-toggle" type="button" aria-label="Alternar tema">
+          <span class="theme-icon" aria-hidden="true">◐</span>
+        </button>
+      </header>
+
+      <main>
+        <section class="hero screen is-visible" id="home-screen" aria-labelledby="hero-title">
+          <div class="hero-content">
+            <p class="eyebrow">Time learning interface</p>
+            <h1 id="hero-title">SK Clock</h1>
+            <p class="hero-impact">Aprenda a falar as horas em inglês enquanto o tempo acontece.</p>
+            <p class="hero-subtitle">
+              Um relógio visual, moderno e interativo que transforma a hora atual em inglês simples,
+              expressão natural e explicação em português.
+            </p>
+
+            <div class="hero-actions">
+              <button class="primary-action" type="button" data-start-mode="analog">
+                <span class="button-icon" aria-hidden="true">⌚</span>
+                Relógio Analógico
+              </button>
+              <button class="secondary-action" type="button" data-start-mode="digital">
+                <span class="button-icon" aria-hidden="true">▣</span>
+                Relógio Digital
+              </button>
+            </div>
+          </div>
+
+          <div class="hero-clock" aria-hidden="true">
+            <div class="preview-ring">
+              <span class="preview-dot dot-one"></span>
+              <span class="preview-dot dot-two"></span>
+              <span class="preview-dot dot-three"></span>
+              <div class="preview-time">
+                <span id="hero-time">00:00</span>
+                <small>learn it live</small>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="clock-screen screen" id="clock-screen" aria-live="polite">
+          <div class="clock-layout">
+            <section class="clock-panel" aria-label="Relogio atual">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Current time</p>
+                  <h2 id="mode-title">Relógio Analógico</h2>
+                </div>
+              </div>
+
+              <div class="clock-stage">
+                <div class="analog-clock" id="analog-clock" aria-label="Relogio analogico">
+                  <span class="hand hour-hand" id="hour-hand"></span>
+                  <span class="hand minute-hand" id="minute-hand"></span>
+                  <span class="hand second-hand" id="second-hand"></span>
+                  <span class="center-pin"></span>
+                </div>
+
+                <div class="digital-clock" id="digital-clock" aria-label="Relogio digital">
+                  <span id="digital-time">00:00:00</span>
+                  <small id="period-label">PM</small>
+                </div>
+              </div>
+
+              <div class="date-strip">
+                <span id="current-date">Carregando data...</span>
+              </div>
+            </section>
+
+            <section class="learning-panel" aria-label="Como falar as horas em ingles">
+              <div class="panel-heading compact">
+                <div>
+                  <p class="eyebrow">English expression</p>
+                  <h2>Como falar agora</h2>
+                </div>
+              </div>
+
+              <div class="lesson-cards">
+                <article class="lesson-card">
+                  <span class="lesson-label">Simple way</span>
+                  <strong id="simple-way">Ten forty-five</strong>
+                </article>
+                <article class="lesson-card featured">
+                  <span class="lesson-label">Natural way</span>
+                  <strong id="natural-way">A quarter to eleven</strong>
+                </article>
+                <article class="lesson-card">
+                  <span class="lesson-label">Meaning</span>
+                  <strong id="meaning-way">Faltam quinze minutos para onze</strong>
+                </article>
+              </div>
+
+              <p class="lesson-note" id="lesson-note">
+                Use past para minutos depois da hora e to para minutos antes da próxima hora.
+              </p>
+
+              <section class="guide" aria-labelledby="guide-title">
+                <div class="guide-heading">
+                  <p class="eyebrow">Mini guia</p>
+                  <h3 id="guide-title">Regras rápidas</h3>
+                </div>
+
+                <div class="guide-grid">
+                  <article class="guide-item">
+                    <span>past</span>
+                    <p>Depois da hora. Ex.: ten past two.</p>
+                  </article>
+                  <article class="guide-item">
+                    <span>to</span>
+                    <p>Para a próxima hora. Ex.: ten to three.</p>
+                  </article>
+                  <article class="guide-item">
+                    <span>quarter</span>
+                    <p>Quinze minutos. Ex.: a quarter past.</p>
+                  </article>
+                  <article class="guide-item">
+                    <span>half past</span>
+                    <p>Trinta minutos depois da hora.</p>
+                  </article>
+                  <article class="guide-item">
+                    <span>AM</span>
+                    <p>Manhã ou madrugada.</p>
+                  </article>
+                  <article class="guide-item">
+                    <span>PM</span>
+                    <p>Tarde ou noite.</p>
+                  </article>
+                </div>
+              </section>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
